@@ -38,8 +38,14 @@ type MyPick<T, K extends keyof T> = {
     [P in K]: T[P]
 }
 
+type test_pick = MyPick<Todo, 'title' | 'completed'>
+
+/**
+ * 通过 P 遍历 类型 K， P 就是 K 中的每一项，将 K 中的每一项作为属性名，值为类型 T 中对应的值
+ */
+
 /* _____________ 测试用例 _____________ */
-// import type { Equal, Expect } from '@type-challenges/utils'
+
 
 // type cases = [
 //   Expect<Equal<Expected1, MyPick<Todo, 'title'>>>,
@@ -48,7 +54,6 @@ type MyPick<T, K extends keyof T> = {
 //   MyPick<Todo, 'title' | 'completed' | 'invalid'>,
 // ]
 
-type test = MyPick<Todo, 'title' | 'completed'>
 
 interface Todo {
   title: string
